@@ -84,6 +84,17 @@ jobs:
           echo "🌐 Website deployed to: $WEBSITE_URL"
           echo "::notice::Website deployed successfully to $WEBSITE_URL"
 
+      - name: Upload Website Files
+        run: |
+          STORAGE_ACCOUNT=$(terraform -chdir=terraform output -raw storage_account_name)
+          echo "📤 Uploading files to storage account: $STORAGE_ACCOUNT"
+          az storage blob upload-batch \
+            --account-name "$STORAGE_ACCOUNT" \
+            --auth-mode login \
+            --destination '$web' \
+            --source './source' \
+            --overwrite
+
       - name: Verify deployment
         working-directory: terraform
         run: |
