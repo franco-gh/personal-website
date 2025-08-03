@@ -12,7 +12,7 @@ variable "subscription_id" {
 variable "tags" {
   description = "Tags to apply to all resources"
   type        = map(string)
-  default     = {
+  default = {
     environment = "development"
     project     = "personal-website"
   }

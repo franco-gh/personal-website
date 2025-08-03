@@ -1,0 +1,408 @@
+/* Responsive Styles */
+
+/* Small Mobile Devices */
+@media (max-width: 320px) {
+    .container {
+        padding: 0 0.5rem;
+    }
+    
+    .hero-title {
+        font-size: 1.75rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .hero-description {
+        font-size: 1rem;
+    }
+    
+    .section-title {
+        font-size: 1.75rem;
+    }
+    
+    .nav-logo {
+        font-size: 1.25rem;
+    }
+    
+    .tech-tag,
+    .skill-tag {
+        font-size: 0.7rem;
+        padding: 0.25rem 0.5rem;
+    }
+    
+    .btn {
+        padding: 0.6rem 1.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .social-link {
+        padding: 0.75rem 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .contact-method {
+        padding: 0.75rem;
+    }
+    
+    .method-icon svg {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+/* Tablet Portrait */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .hero .container {
+        gap: 3rem;
+    }
+    
+    .hero-title {
+        font-size: 3rem;
+    }
+    
+    .about-content {
+        gap: 3rem;
+    }
+    
+    .blog-layout {
+        gap: 2.5rem;
+    }
+    
+    .blog-main {
+        padding: 1.75rem;
+    }
+    
+    .post-layout {
+        gap: 2.5rem;
+    }
+    
+    .contact-layout {
+        gap: 3rem;
+    }
+    
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Large Tablets and Small Laptops */
+@media (min-width: 1025px) and (max-width: 1200px) {
+    .container {
+        max-width: 1000px;
+    }
+    
+    .hero-title {
+        font-size: 3.25rem;
+    }
+    
+    .blog-layout {
+        grid-template-columns: 1fr 280px;
+    }
+    
+    .post-layout {
+        grid-template-columns: 1fr 230px;
+    }
+}
+
+/* Extra Large Screens */
+@media (min-width: 1441px) {
+    .container {
+        max-width: 1400px;
+    }
+    
+    .hero {
+        padding: 6rem 0;
+    }
+    
+    .hero-title {
+        font-size: 4rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.75rem;
+    }
+    
+    .hero-description {
+        font-size: 1.25rem;
+    }
+    
+    .section-title {
+        font-size: 3rem;
+    }
+    
+    .about,
+    .connect,
+    .contact-content {
+        padding: 6rem 0;
+    }
+    
+    .blog-layout {
+        grid-template-columns: 1fr 320px;
+    }
+    
+    .post-layout {
+        grid-template-columns: 1fr 280px;
+    }
+}
+
+/* High DPI Displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    /* Optimize for high DPI displays */
+    .hero-card {
+        border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    
+    .nav-link.active::after {
+        height: 2px;
+    }
+    
+    .bar {
+        height: 2px;
+    }
+}
+
+/* Print Styles */
+@media print {
+    * {
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+    
+    body {
+        font-size: 12pt;
+        line-height: 1.4;
+        color: #000;
+        background: #fff;
+    }
+    
+    .header,
+    .footer,
+    .nav,
+    .hero-buttons,
+    .social-links,
+    .download-btn,
+    .btn {
+        display: none !important;
+    }
+    
+    .hero {
+        background: none;
+        color: #000;
+        padding: 1rem 0;
+    }
+    
+    .contact-content,
+    .about {
+        background: none;
+    }
+    
+    .resume-section,
+    .info-section,
+    .stat-card {
+        box-shadow: none;
+        border: 1px solid #ccc;
+    }
+    
+    a {
+        color: #000;
+        text-decoration: underline;
+    }
+    
+    .page-break {
+        page-break-before: always;
+    }
+    
+    h1, h2, h3 {
+        page-break-after: avoid;
+    }
+    
+    .experience-item,
+    .education-item,
+    .certification-item {
+        page-break-inside: avoid;
+    }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-primary: #1a1a1a;
+        --bg-secondary: #2d2d2d;
+        --text-primary: #ffffff;
+        --text-secondary: #b3b3b3;
+        --border-color: #404040;
+    }
+    
+    /* Uncomment to enable dark mode */
+    /*
+    body {
+        background-color: var(--bg-primary);
+        color: var(--text-primary);
+    }
+    
+    .header {
+        background: var(--bg-secondary);
+        border-bottom: 1px solid var(--border-color);
+    }
+    
+    .nav-link {
+        color: var(--text-secondary);
+    }
+    
+    .nav-link:hover,
+    .nav-link.active {
+        color: var(--text-primary);
+    }
+    
+    .about,
+    .contact-content {
+        background: var(--bg-secondary);
+    }
+    
+    .stat-card,
+    .info-section,
+    .resume-section,
+    .blog-main,
+    .sidebar-section {
+        background: var(--bg-secondary);
+        border-color: var(--border-color);
+    }
+    
+    .footer {
+        background: var(--bg-primary);
+        border-top: 1px solid var(--border-color);
+    }
+    */
+}
+
+/* Accessibility Improvements */
+@media (prefers-contrast: high) {
+    .btn-primary {
+        background: #000;
+        color: #fff;
+        border: 2px solid #fff;
+    }
+    
+    .btn-secondary {
+        background: #fff;
+        color: #000;
+        border: 2px solid #000;
+    }
+    
+    .nav-link.active::after {
+        background: #000;
+        height: 3px;
+    }
+    
+    a {
+        text-decoration: underline;
+    }
+}
+
+/* Landscape orientation for mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+    .hero {
+        padding: 2rem 0;
+        min-height: auto;
+    }
+    
+    .hero .container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .hero-description {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .hero-buttons {
+        gap: 0.75rem;
+    }
+    
+    .btn {
+        padding: 0.5rem 1.5rem;
+    }
+}
+
+/* Focus styles for accessibility */
+@media (prefers-reduced-motion: no-preference) {
+    .nav-link:focus,
+    .btn:focus,
+    .social-link:focus,
+    .filter-btn:focus,
+    .pagination-btn:focus {
+        outline: 2px solid #667eea;
+        outline-offset: 2px;
+    }
+}
+
+/* Safari-specific fixes */
+@supports (-webkit-touch-callout: none) {
+    .hero-card {
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+    }
+    
+    .header {
+        -webkit-backdrop-filter: blur(10px);
+    }
+}
+
+/* Firefox-specific fixes */
+@-moz-document url-prefix() {
+    .reading-progress-bar {
+        background: -moz-linear-gradient(left, #667eea 0%, #764ba2 100%);
+    }
+}
+
+/* Internet Explorer 11 fallbacks */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .blog-layout,
+    .post-layout,
+    .contact-layout,
+    .about-content {
+        display: block;
+    }
+    
+    .blog-main,
+    .blog-sidebar,
+    .post-main,
+    .post-sidebar {
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+    
+    .hero .container {
+        display: block;
+    }
+    
+    .hero-content,
+    .hero-visual {
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+}

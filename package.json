@@ -1,0 +1,30 @@
+{
+  "name": "personal-website",
+  "version": "1.0.0",
+  "description": "Franco's personal website with blog functionality",
+  "main": "index.js",
+  "scripts": {
+    "build": "node scripts/process-markdown.js",
+    "dev": "npm run build && npx http-server source -p 3000",
+    "test": "echo \"No tests specified\" && exit 0",
+    "lint": "echo \"No linting configured\" && exit 0"
+  },
+  "keywords": [
+    "blog",
+    "static-site",
+    "personal-website",
+    "azure",
+    "terraform"
+  ],
+  "author": "Franco",
+  "license": "MIT",
+  "devDependencies": {
+    "gray-matter": "^4.0.3",
+    "marked": "^5.1.1",
+    "slugify": "^1.6.6",
+    "http-server": "^14.1.1"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

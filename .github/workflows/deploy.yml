@@ -1,0 +1,98 @@
+name: Deploy Website with Terraform
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'content/**'
+      - 'source/**'
+      - 'scripts/**'
+      - 'package.json'
+      - 'terraform/**'
+  workflow_dispatch:
+
+env:
+  ARM_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
+  ARM_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
+  ARM_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+  ARM_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install Node.js dependencies
+        run: npm ci
+
+      - name: Process markdown to JSON
+        run: |
+          echo "🚀 Processing markdown files..."
+          npm run build
+          echo "✅ Markdown processing complete"
+
+      - name: List generated files
+        run: |
+          echo "📄 Generated blog files:"
+          find source/blog/data -name "*.json" -type f | head -10
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: "1.5.0"
+
+      - name: Terraform Init
+        working-directory: terraform
+        run: |
+          # Initialize with backend configuration if secrets are available
+          if [ -n "${{ secrets.TERRAFORM_BACKEND_STORAGE_ACCOUNT }}" ]; then
+            echo "🔧 Initializing with remote backend..."
+            terraform init \
+              -backend-config="resource_group_name=${{ secrets.TERRAFORM_BACKEND_RESOURCE_GROUP }}" \
+              -backend-config="storage_account_name=${{ secrets.TERRAFORM_BACKEND_STORAGE_ACCOUNT }}" \
+              -backend-config="container_name=${{ secrets.TERRAFORM_BACKEND_CONTAINER }}" \
+              -backend-config="key=${{ secrets.TERRAFORM_BACKEND_KEY }}" \
+              -backend-config="access_key=${{ secrets.TERRAFORM_BACKEND_ACCESS_KEY }}"
+          else
+            echo "⚠️  No backend configuration found, using local state"
+            terraform init
+          fi
+
+      - name: Terraform Plan
+        working-directory: terraform
+        run: terraform plan -out=tfplan
+
+      - name: Terraform Apply
+        working-directory: terraform
+        run: terraform apply -auto-approve tfplan
+
+      - name: Get Website URL
+        working-directory: terraform
+        run: |
+          WEBSITE_URL=$(terraform output -raw website_url)
+          echo "🌐 Website deployed to: $WEBSITE_URL"
+          echo "::notice::Website deployed successfully to $WEBSITE_URL"
+
+      - name: Verify deployment
+        working-directory: terraform
+        run: |
+          WEBSITE_URL=$(terraform output -raw website_url)
+          echo "🔍 Testing website accessibility..."
+          if curl -f -s "$WEBSITE_URL" > /dev/null; then
+            echo "✅ Website is accessible"
+            echo "🎉 Deployment successful!"
+          else
+            echo "❌ Website is not accessible"
+            exit 1
+          fi

@@ -1,0 +1,160 @@
+{
+  "posts": [
+    {
+      "id": "from-markdown-to-json-automated-content-processing",
+      "title": "From Markdown to JSON: Automated Content Processing",
+      "slug": "from-markdown-to-json-automated-content-processing",
+      "publishDate": "2024-08-05",
+      "lastModified": "2025-08-02",
+      "author": "Franco",
+      "summary": "From Markdown to JSON: Automated Content ProcessingWriting blog posts in Markdown is a joy - it’s simple, portable, and plays well with version control.",
+      "tags": [
+        "automation",
+        "markdown",
+        "nodejs",
+        "github-actions",
+        "cms"
+      ],
+      "category": "Technology",
+      "readTime": 6,
+      "featured": true,
+      "published": true,
+      "seo": {
+        "metaDescription": "How I built an automated content management system that converts Markdown files to JSON for my static blog using Node.js and GitHub Actions.",
+        "keywords": [
+          "markdown",
+          "json",
+          "automation",
+          "nodejs",
+          "github actions",
+          "cms",
+          "static site"
+        ]
+      }
+    },
+    {
+      "id": "building-modern-static-websites-with-azure",
+      "title": "Building Modern Static Websites with Azure",
+      "slug": "building-modern-static-websites-with-azure",
+      "publishDate": "2024-08-03",
+      "lastModified": "2025-08-02",
+      "author": "Franco",
+      "summary": "Building Modern Static Websites with AzureStatic websites have made a huge comeback in recent years, and for good reason. They’re fast, secure, cost-effective,...",
+      "tags": [
+        "web-development",
+        "azure",
+        "static-sites",
+        "performance",
+        "terraform"
+      ],
+      "category": "Technology",
+      "readTime": 8,
+      "featured": false,
+      "published": true,
+      "seo": {
+        "metaDescription": "Learn how to build modern static websites with Azure Storage, Terraform, and best practices for performance and scalability.",
+        "keywords": [
+          "static websites",
+          "azure",
+          "web development",
+          "performance",
+          "terraform",
+          "infrastructure"
+        ]
+      }
+    },
+    {
+      "id": "welcome-to-my-blog",
+      "title": "Welcome to My Blog",
+      "slug": "welcome-to-my-blog",
+      "publishDate": "2024-08-02",
+      "lastModified": "2025-08-02",
+      "author": "Franco",
+      "summary": "Welcome to My Blog!Hello and welcome to my personal blog! I’m excited to start sharing my thoughts and experiences in the world of technology and software...",
+      "tags": [
+        "intro",
+        "personal",
+        "welcome"
+      ],
+      "category": "Personal",
+      "readTime": 3,
+      "featured": true,
+      "published": true,
+      "seo": {
+        "metaDescription": "Welcome to my personal blog - sharing insights on technology and software development.",
+        "keywords": [
+          "blog",
+          "personal",
+          "technology",
+          "programming"
+        ]
+      }
+    }
+  ],
+  "categories": [
+    {
+      "name": "Technology",
+      "slug": "technology",
+      "count": 2
+    },
+    {
+      "name": "Personal",
+      "slug": "personal",
+      "count": 1
+    }
+  ],
+  "tags": [
+    {
+      "name": "automation",
+      "count": 1
+    },
+    {
+      "name": "markdown",
+      "count": 1
+    },
+    {
+      "name": "nodejs",
+      "count": 1
+    },
+    {
+      "name": "github-actions",
+      "count": 1
+    },
+    {
+      "name": "cms",
+      "count": 1
+    },
+    {
+      "name": "web-development",
+      "count": 1
+    },
+    {
+      "name": "azure",
+      "count": 1
+    },
+    {
+      "name": "static-sites",
+      "count": 1
+    },
+    {
+      "name": "performance",
+      "count": 1
+    },
+    {
+      "name": "terraform",
+      "count": 1
+    },
+    {
+      "name": "intro",
+      "count": 1
+    },
+    {
+      "name": "personal",
+      "count": 1
+    },
+    {
+      "name": "welcome",
+      "count": 1
+    }
+  ]
+}
