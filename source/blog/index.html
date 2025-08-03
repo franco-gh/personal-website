@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Franco's Personal Website</title>
+    <meta name="description" content="Franco's personal blog - insights on technology, programming, and software development.">
+    <meta name="keywords" content="blog, technology, programming, web development, software">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Franco's Blog">
+    <meta property="og:description" content="Insights on technology, programming, and software development">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/blog/">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Franco's Blog">
+    <meta name="twitter:description" content="Insights on technology, programming, and software development">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/blog.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <a href="../index.html" class="nav-logo">Franco</a>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="../index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link active">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../contact.html" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+                <div class="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main">
+        <section class="blog-hero">
+            <div class="container">
+                <h1 class="blog-title">My Blog</h1>
+                <p class="blog-subtitle">Thoughts on technology, programming, and software development</p>
+            </div>
+        </section>
+
+        <section class="blog-content">
+            <div class="container">
+                <div class="blog-layout">
+                    <!-- Main Content -->
+                    <div class="blog-main">
+                        <!-- Search Bar -->
+                        <div class="search-container">
+                            <input type="text" id="searchInput" placeholder="Search posts..." class="search-input">
+                            <button class="search-btn" id="searchBtn">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="11" cy="11" r="8"></circle>
+                                    <path d="m21 21-4.35-4.35"></path>
+                                </svg>
+                            </button>
+                        </div>
+
+                        <!-- Filter Tags -->
+                        <div class="filter-container">
+                            <button class="filter-btn active" data-filter="all">All Posts</button>
+                            <div id="categoryFilters"></div>
+                        </div>
+
+                        <!-- Blog Posts Container -->
+                        <div id="blogPosts" class="blog-posts">
+                            <!-- Posts will be loaded here via JavaScript -->
+                            <div class="loading">Loading posts...</div>
+                        </div>
+
+                        <!-- Pagination -->
+                        <div id="pagination" class="pagination">
+                            <!-- Pagination will be generated here -->
+                        </div>
+                    </div>
+
+                    <!-- Sidebar -->
+                    <aside class="blog-sidebar">
+                        <div class="sidebar-section">
+                            <h3>About</h3>
+                            <p>Welcome to my personal blog where I share insights on technology, programming, and my journey in software development.</p>
+                        </div>
+
+                        <div class="sidebar-section">
+                            <h3>Categories</h3>
+                            <ul id="categoriesList" class="categories-list">
+                                <!-- Categories will be loaded here -->
+                            </ul>
+                        </div>
+
+                        <div class="sidebar-section">
+                            <h3>Popular Tags</h3>
+                            <div id="tagsList" class="tags-list">
+                                <!-- Tags will be loaded here -->
+                            </div>
+                        </div>
+
+                        <div class="sidebar-section">
+                            <h3>Recent Posts</h3>
+                            <ul id="recentPosts" class="recent-posts">
+                                <!-- Recent posts will be loaded here -->
+                            </ul>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Franco's Website</h4>
+                    <p>Personal blog and portfolio</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="https://github.com/[USERNAME]" target="_blank" rel="noopener noreferrer">GitHub</a>
+                        <a href="https://linkedin.com/in/[USERNAME]" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="index.html">Blog</a></li>
+                        <li><a href="../contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Franco. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../js/main.js"></script>
+    <script src="../js/blog.js"></script>
+</body>
+</html>

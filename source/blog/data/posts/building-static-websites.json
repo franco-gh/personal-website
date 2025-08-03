@@ -1,0 +1,19 @@
+{
+  "id": "building-static-websites",
+  "title": "Building Modern Static Websites with Azure",
+  "slug": "building-static-websites",
+  "publishDate": "2024-08-03",
+  "lastModified": "2024-08-03",
+  "author": "Franco",
+  "summary": "A deep dive into creating fast, scalable static websites using Azure Storage and modern web technologies.",
+  "tags": ["web-development", "azure", "static-sites", "performance"],
+  "category": "Technology",
+  "readTime": 5,
+  "featured": false,
+  "published": true,
+  "content": "<p>Static websites have made a huge comeback in recent years, and for good reason. They're fast, secure, cost-effective, and perfect for many use cases including personal blogs, portfolios, and even complex applications.</p><h2>Why Choose Static Sites?</h2><p>Static sites offer several advantages:</p><ul><li><strong>Performance</strong> - No server-side processing means lightning-fast load times</li><li><strong>Security</strong> - No database or server-side code reduces attack vectors</li><li><strong>Scalability</strong> - CDNs can handle massive traffic spikes effortlessly</li><li><strong>Cost</strong> - Hosting costs are minimal compared to dynamic sites</li></ul><h2>Azure Storage Static Websites</h2><p>Azure Storage offers an excellent platform for hosting static websites with features like:</p><ul><li>Built-in CDN integration</li><li>Custom domain support</li><li>HTTPS by default</li><li>Integration with Azure DevOps and GitHub Actions</li></ul><h2>Modern Development Stack</h2><p>For this blog, I'm using a modern static site approach:</p><ul><li><strong>HTML5</strong> - Semantic markup for accessibility</li><li><strong>CSS3</strong> - Modern layouts with Grid and Flexbox</li><li><strong>Vanilla JavaScript</strong> - Lightweight and fast</li><li><strong>Terraform</strong> - Infrastructure as Code</li><li><strong>GitHub Actions</strong> - Automated deployment</li></ul><h2>Performance Considerations</h2><p>Key optimizations for static sites:</p><ul><li>Minimize JavaScript bundle sizes</li><li>Optimize images (WebP format, lazy loading)</li><li>Use efficient CSS (avoid unused styles)</li><li>Implement proper caching headers</li><li>Consider service workers for offline functionality</li></ul><p>Static sites represent the perfect balance of simplicity and power for many web projects. They allow developers to focus on content and user experience without the complexity of server management.</p>",
+  "seo": {
+    "metaDescription": "Learn how to build modern static websites with Azure Storage, Terraform, and best practices.",
+    "keywords": ["static websites", "azure", "web development", "performance"]
+  }
+}
