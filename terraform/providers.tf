@@ -14,14 +14,14 @@ terraform {
     }
   }
 
-  # Remote backend for state management
-  # Uncomment and configure when setting up CI/CD
-  # backend "azurerm" {
-  #   resource_group_name  = "terraform-state-rg"
-  #   storage_account_name = "tfstate[random-suffix]"
-  #   container_name       = "tfstate"
-  #   key                  = "website.tfstate"
-  # }
+  # Terraform Cloud backend for state management
+  cloud {
+    organization = "CUM"
+    
+    workspaces {
+      name = "personal-website"
+    }
+  }
 }
 
 provider "azurerm" {
