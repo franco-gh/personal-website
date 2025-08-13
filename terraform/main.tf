@@ -25,4 +25,61 @@ resource "azurerm_storage_account_static_website" "sa_static_web" {
   error_404_document = "404.html"
 }
 
-# File upload is now handled by GitHub Actions after Terraform
+# Process markdown files to JSON
+resource "null_resource" "process_markdown" {
+  triggers = {
+    # Trigger when content files change
+    content_hash = sha256(join("", [for f in fileset("${path.module}/../content/posts", "*.md") : filesha256("${path.module}/../content/posts/${f}")]))
+  }
+
+  provisioner "local-exec" {
+    working_dir = "${path.module}/.."
+    command = <<-EOT
+      # Install Node.js if not present
+      if ! command -v node &> /dev/null; then
+        curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+        sudo apt-get install -y nodejs
+      fi
+      
+      # Install dependencies and process markdown
+      npm ci
+      npm run build
+      
+      echo "✅ Markdown processing complete"
+    EOT
+  }
+}
+
+# Upload website files to storage account
+resource "null_resource" "upload_website_files" {
+  depends_on = [
+    azurerm_storage_account_static_website.sa_static_web,
+    null_resource.process_markdown
+  ]
+
+  triggers = {
+    # Trigger re-upload when any source files change
+    source_hash = filebase64sha256("${path.module}/../source/index.html")
+    # Also trigger when content changes (after processing)
+    content_hash = null_resource.process_markdown.triggers.content_hash
+  }
+
+  provisioner "local-exec" {
+    command = <<-EOT
+      # Install Azure CLI if not present
+      if ! command -v az &> /dev/null; then
+        curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+      fi
+      
+      # Upload all files from source directory
+      az storage blob upload-batch \
+        --account-name ${azurerm_storage_account.sa-website.name} \
+        --account-key ${azurerm_storage_account.sa-website.primary_access_key} \
+        --destination '$web' \
+        --source '${path.module}/../source' \
+        --overwrite
+        
+      echo "✅ Website files uploaded successfully"
+    EOT
+  }
+}
