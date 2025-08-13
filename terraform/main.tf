@@ -82,4 +82,7 @@ resource "null_resource" "upload_website_files" {
       echo "✅ Website files uploaded successfully"
     EOT
   }
+
 }
+
+## triggering
