@@ -55,7 +55,7 @@ resource "null_resource" "upload_website_files" {
 
   provisioner "local-exec" {
     interpreter = ["/bin/bash", "-c"]
-    command = "set -e && if ! command -v az >/dev/null 2>&1; then echo 'Installing Azure CLI...' && curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash; else echo 'Azure CLI already installed:' $(az version --query '\"azure-cli\"' -o tsv); fi && echo 'Uploading website files to Azure Storage...' && az storage blob upload-batch --account-name ${azurerm_storage_account.sa-website.name} --account-key ${azurerm_storage_account.sa-website.primary_access_key} --destination '\$web' --source '${path.module}/../source' --overwrite && echo '✅ Website files uploaded successfully'"
+    command = "set -e && if ! command -v az >/dev/null 2>&1; then echo 'Installing Azure CLI...' && curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash; else echo 'Azure CLI already installed:' $(az version --query '\"azure-cli\"' -o tsv); fi && echo 'Uploading website files to Azure Storage...' && az storage blob upload-batch --account-name ${azurerm_storage_account.sa-website.name} --account-key ${azurerm_storage_account.sa-website.primary_access_key} --destination '$$web' --source '${path.module}/../source' --overwrite && echo '✅ Website files uploaded successfully'"
   }
 
 }
