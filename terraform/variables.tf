@@ -1,7 +1,7 @@
 variable "location" {
   description = "The Azure region where resources will be created"
   type        = string
-  default     = "East US"
+  default     = "eastus"
 }
 
 variable "subscription_id" {
@@ -12,8 +12,4 @@ variable "subscription_id" {
 variable "tags" {
   description = "Tags to apply to all resources"
   type        = map(string)
-  default = {
-    environment = "development"
-    project     = "personal-website"
-  }
 }

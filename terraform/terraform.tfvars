@@ -3,4 +3,6 @@ location        = "eastus"
 
 tags = {
   ManagedBy = "terraform"
+  environment = "dev"
+  project     = "personal-website"
 }
