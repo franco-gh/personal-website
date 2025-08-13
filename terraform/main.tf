@@ -34,19 +34,34 @@ resource "null_resource" "process_markdown" {
 
   provisioner "local-exec" {
     working_dir = "${path.module}/.."
-    command = <<-EOT
-      # Install Node.js if not present
-      if ! command -v node &> /dev/null; then
-        curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
-        sudo apt-get install -y nodejs
-      fi
-      
-      # Install dependencies and process markdown
-      npm ci
-      npm run build
-      
-      echo "✅ Markdown processing complete"
-    EOT
+    command = <<-SCRIPT
+set -e
+
+# Check if Node.js is available
+if ! command -v node >/dev/null 2>&1; then
+  echo "Installing Node.js..."
+  curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+  sudo apt-get install -y nodejs
+else
+  echo "Node.js already installed: $(node --version)"
+fi
+
+# Check if npm is available
+if ! command -v npm >/dev/null 2>&1; then
+  echo "npm not found, something went wrong with Node.js installation"
+  exit 1
+fi
+
+# Install dependencies
+echo "Installing npm dependencies..."
+npm ci
+
+# Process markdown files
+echo "Processing markdown files..."
+npm run build
+
+echo "✅ Markdown processing complete"
+SCRIPT
   }
 }
 
@@ -65,22 +80,28 @@ resource "null_resource" "upload_website_files" {
   }
 
   provisioner "local-exec" {
-    command = <<-EOT
-      # Install Azure CLI if not present
-      if ! command -v az &> /dev/null; then
-        curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
-      fi
-      
-      # Upload all files from source directory
-      az storage blob upload-batch \
-        --account-name ${azurerm_storage_account.sa-website.name} \
-        --account-key ${azurerm_storage_account.sa-website.primary_access_key} \
-        --destination '$web' \
-        --source '${path.module}/../source' \
-        --overwrite
-        
-      echo "✅ Website files uploaded successfully"
-    EOT
+    command = <<-SCRIPT
+set -e
+
+# Check if Azure CLI is available
+if ! command -v az >/dev/null 2>&1; then
+  echo "Installing Azure CLI..."
+  curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+else
+  echo "Azure CLI already installed: $(az version --query '"azure-cli"' -o tsv)"
+fi
+
+# Upload all files from source directory
+echo "Uploading website files to Azure Storage..."
+az storage blob upload-batch \
+  --account-name ${azurerm_storage_account.sa-website.name} \
+  --account-key ${azurerm_storage_account.sa-website.primary_access_key} \
+  --destination '$web' \
+  --source '${path.module}/../source' \
+  --overwrite
+
+echo "✅ Website files uploaded successfully"
+SCRIPT
   }
 
 }
