@@ -1,6 +1,68 @@
 {
   "posts": [
     {
+      "id": "github-pages-automation-testing-our-new-pipeline",
+      "title": "GitHub Pages Automation: Testing Our New Pipeline",
+      "slug": "github-pages-automation-testing-our-new-pipeline",
+      "publishDate": "2025-01-15",
+      "lastModified": "2025-08-15",
+      "author": "Franco",
+      "summary": "GitHub Pages Automation: Testing Our New PipelineThis is a test post to validate that our GitHub Pages automation pipeline is working correctly after...",
+      "tags": [
+        "github-pages",
+        "automation",
+        "ci-cd",
+        "testing",
+        "deployment"
+      ],
+      "category": "Technology",
+      "readTime": 3,
+      "featured": false,
+      "published": true,
+      "seo": {
+        "metaDescription": "A test post to validate our GitHub Pages automation pipeline is working correctly after migrating from Azure.",
+        "keywords": [
+          "github pages",
+          "automation",
+          "ci/cd",
+          "deployment",
+          "testing"
+        ]
+      }
+    },
+    {
+      "id": "migrating-from-azure-to-github-pages-a-developers-journey",
+      "title": "Migrating from Azure to GitHub Pages: A Developer's Journey",
+      "slug": "migrating-from-azure-to-github-pages-a-developers-journey",
+      "publishDate": "2025-01-15",
+      "lastModified": "2025-08-15",
+      "author": "Franco",
+      "summary": "Migrating from Azure to GitHub Pages: A Developer’s JourneyToday I want to share the story of migrating my personal website from Azure Storage Static Websites...",
+      "tags": [
+        "github-pages",
+        "azure",
+        "migration",
+        "static-sites",
+        "ci-cd",
+        "automation"
+      ],
+      "category": "DevOps",
+      "readTime": 8,
+      "featured": true,
+      "published": true,
+      "seo": {
+        "metaDescription": "How I successfully migrated my personal website from Azure Storage Static Websites to GitHub Pages, simplifying deployment and reducing costs.",
+        "keywords": [
+          "github pages",
+          "azure migration",
+          "static website hosting",
+          "ci/cd",
+          "terraform",
+          "github actions"
+        ]
+      }
+    },
+    {
       "id": "from-markdown-to-json-automated-content-processing",
       "title": "From Markdown to JSON: Automated Content Processing",
       "slug": "from-markdown-to-json-automated-content-processing",
@@ -95,7 +157,12 @@
     {
       "name": "Technology",
       "slug": "technology",
-      "count": 2
+      "count": 3
+    },
+    {
+      "name": "DevOps",
+      "slug": "devops",
+      "count": 1
     },
     {
       "name": "Personal",
@@ -105,8 +172,36 @@
   ],
   "tags": [
     {
+      "name": "github-pages",
+      "count": 2
+    },
+    {
       "name": "automation",
+      "count": 3
+    },
+    {
+      "name": "ci-cd",
+      "count": 2
+    },
+    {
+      "name": "testing",
       "count": 1
+    },
+    {
+      "name": "deployment",
+      "count": 1
+    },
+    {
+      "name": "azure",
+      "count": 2
+    },
+    {
+      "name": "migration",
+      "count": 1
+    },
+    {
+      "name": "static-sites",
+      "count": 2
     },
     {
       "name": "markdown",
@@ -126,14 +221,6 @@
     },
     {
       "name": "web-development",
-      "count": 1
-    },
-    {
-      "name": "azure",
-      "count": 1
-    },
-    {
-      "name": "static-sites",
       "count": 1
     },
     {

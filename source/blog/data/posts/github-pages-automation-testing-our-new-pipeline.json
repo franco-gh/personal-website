@@ -1,0 +1,31 @@
+{
+  "id": "github-pages-automation-testing-our-new-pipeline",
+  "title": "GitHub Pages Automation: Testing Our New Pipeline",
+  "slug": "github-pages-automation-testing-our-new-pipeline",
+  "publishDate": "2025-01-15",
+  "lastModified": "2025-08-15",
+  "author": "Franco",
+  "summary": "GitHub Pages Automation: Testing Our New PipelineThis is a test post to validate that our GitHub Pages automation pipeline is working correctly after...",
+  "tags": [
+    "github-pages",
+    "automation",
+    "ci-cd",
+    "testing",
+    "deployment"
+  ],
+  "category": "Technology",
+  "readTime": 3,
+  "featured": false,
+  "published": true,
+  "content": "<h1 id=\"github-pages-automation-testing-our-new-pipeline\">GitHub Pages Automation: Testing Our New Pipeline</h1><p>This is a test post to validate that our GitHub Pages automation pipeline is working correctly after successfully migrating from Azure to GitHub Pages hosting.</p>\n<h2 id=\"what-we-re-testing\">What We’re Testing</h2><p>This post will test several key aspects of our automated deployment:</p>\n<h3 id=\"1-strong-markdown-processing-strong-\">1. <strong>Markdown Processing</strong></h3><ul>\n<li>✅ Frontmatter parsing (title, date, tags, etc.)</li>\n<li>✅ Markdown to HTML conversion</li>\n<li>✅ JSON file generation</li>\n<li>✅ Master index updates</li>\n</ul>\n<h3 id=\"2-strong-github-actions-workflow-strong-\">2. <strong>GitHub Actions Workflow</strong></h3><ul>\n<li>✅ Automatic triggering on push to main</li>\n<li>✅ Node.js environment setup</li>\n<li>✅ Dependency installation</li>\n<li>✅ Blog post processing</li>\n<li>✅ GitHub Pages deployment</li>\n</ul>\n<h3 id=\"3-strong-content-features-strong-\">3. <strong>Content Features</strong></h3><p>Let’s test various Markdown features:</p>\n<h4 id=\"code-blocks\">Code Blocks</h4><pre><code class=\"language-javascript\">// Testing syntax highlighting\nconst testAutomation = () => {\n  console.log(\"GitHub Pages automation is working! 🎉\");\n  return \"success\";\n};</code></pre><h4 id=\"lists-and-formatting\">Lists and Formatting</h4><ul>\n<li><strong>Bold text</strong> works</li>\n<li><em>Italic text</em> works</li>\n<li><code>Inline code</code> works</li>\n<li><a href=\"https://github.com\">External links</a> work</li>\n</ul>\n<h4 id=\"tables\">Tables</h4><table>\n<thead>\n<tr>\n<th>Feature</th>\n<th>Status</th>\n<th>Notes</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>Markdown Processing</td>\n<td>✅</td>\n<td>Working</td>\n</tr>\n<tr>\n<td>GitHub Actions</td>\n<td>✅</td>\n<td>Automated</td>\n</tr>\n<tr>\n<td>GitHub Pages</td>\n<td>✅</td>\n<td>Live</td>\n</tr>\n</tbody></table>\n<h2 id=\"expected-results\">Expected Results</h2><p>If this test is successful, we should see:</p>\n<ol>\n<li><strong>JSON Generation</strong>: A new JSON file created in <code>source/blog/data/posts/</code></li>\n<li><strong>Index Update</strong>: The master <code>posts.json</code> file updated with this post</li>\n<li><strong>Deployment</strong>: This post appearing on the live website</li>\n<li><strong>Metadata</strong>: All frontmatter correctly processed (tags, category, etc.)</li>\n</ol>\n<h2 id=\"why-this-matters\">Why This Matters</h2><p>Automated testing of our deployment pipeline ensures:</p>\n<ul>\n<li><strong>Reliability</strong>: Every post deploys consistently</li>\n<li><strong>Confidence</strong>: We can publish without manual intervention</li>\n<li><strong>Quality</strong>: Content processing works as expected</li>\n<li><strong>Performance</strong>: The entire pipeline completes quickly</li>\n</ul>\n<h2 id=\"technical-stack-validation\">Technical Stack Validation</h2><p>This test validates our complete technology stack:</p>\n<pre><code class=\"language-yaml\">Source: GitHub Repository\n↓\nProcessing: Node.js + GitHub Actions  \n↓\nBuild: Markdown → JSON conversion\n↓\nDeploy: GitHub Pages\n↓\nResult: Live website with custom domain</code></pre><h2 id=\"conclusion\">Conclusion</h2><p>If you’re reading this on the live website, our GitHub Pages automation is working perfectly! 🚀</p>\n<p>The migration from Azure to GitHub Pages has been successful, and we now have a streamlined, cost-effective, and fully automated publishing pipeline.</p>\n<hr>\n<p><em>This post was created as part of testing our new GitHub Pages deployment automation. If it appears correctly formatted with all metadata, our pipeline is functioning as intended!</em></p>\n",
+  "seo": {
+    "metaDescription": "A test post to validate our GitHub Pages automation pipeline is working correctly after migrating from Azure.",
+    "keywords": [
+      "github pages",
+      "automation",
+      "ci/cd",
+      "deployment",
+      "testing"
+    ]
+  }
+}
