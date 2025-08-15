@@ -13,8 +13,8 @@
     "blog",
     "static-site",
     "personal-website",
-    "azure",
-    "terraform"
+    "github-pages",
+    "markdown"
   ],
   "author": "Franco",
   "license": "MIT",
