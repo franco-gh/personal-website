@@ -7,8 +7,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 This is a personal website project consisting of:
 - **Static website source**: Located in `source/` directory (HTML, CSS, JavaScript, images)
 - **Blog system**: Full-featured blog with Markdown-to-JSON processing
-- **Azure infrastructure**: Terraform configuration in `terraform/` directory for hosting on Azure Storage Static Website
-- **Automated deployment**: GitHub Actions for content processing and deployment
+- **GitHub Pages hosting**: Automated deployment via GitHub Actions
+- **Automated deployment**: GitHub Actions for content processing and GitHub Pages deployment
 
 ## Architecture
 
@@ -29,10 +29,10 @@ This is a personal website project consisting of:
 - `scripts/process-markdown.js` - Node.js script for Markdown to JSON conversion
 - `.github/workflows/` - GitHub Actions for automated processing
 
-### Infrastructure
-- **Terraform modules**: All infrastructure is defined in `terraform/` directory
-- **Azure Storage Account**: Configured for static website hosting with `index.html` as default and `404.html` for errors
-- **Resource naming**: Uses random suffix for storage account uniqueness
+### Hosting
+- **GitHub Pages**: Automated static site hosting directly from GitHub repository
+- **Custom domain support**: Can be configured in repository settings
+- **Automatic SSL**: GitHub Pages provides free SSL certificates
 
 ## Development Commands
 
@@ -54,34 +54,20 @@ npm run dev
 # 4. Commit and push - GitHub Actions will process automatically
 ```
 
-### Terraform Infrastructure
+### GitHub Pages Setup
 ```bash
-# Initialize Terraform
-cd terraform && terraform init
-
-# Plan infrastructure changes
-cd terraform && terraform plan
-
-# Apply infrastructure changes  
-cd terraform && terraform apply
-
-# Destroy infrastructure
-cd terraform && terraform destroy
+# Enable GitHub Pages in repository settings
+# 1. Go to repository Settings > Pages
+# 2. Source: GitHub Actions
+# 3. Custom domain (optional): Add your domain
+# 4. GitHub Actions will handle deployment automatically
 ```
-
-### Required Variables
-Create `terraform/terraform.tfvars` with:
-- `subscription_id` - Azure subscription ID
-- `location` - Azure region (defaults to "East US")
-- `tags` - Resource tags (has defaults)
 
 ## Important Files
 
-### Infrastructure
-- `terraform/main.tf` - Core Azure resources (Resource Group, Storage Account, Static Website)
-- `terraform/variables.tf` - Variable definitions
-- `terraform/providers.tf` - Azure provider configuration
-- `.gitignore` - Standard Terraform ignore patterns for sensitive files
+### GitHub Pages
+- `.github/workflows/deploy-github-pages.yml` - GitHub Pages deployment workflow
+- `source/` - Static files served by GitHub Pages
 
 ### Blog System
 - `package.json` - Node.js dependencies and scripts
@@ -91,8 +77,7 @@ Create `terraform/terraform.tfvars` with:
 - `source/blog/data/posts/*.json` - Auto-generated individual post files
 
 ### Automation
-- `.github/workflows/deploy.yml` - Main deployment workflow
-- `.github/workflows/blog-build.yml` - Blog content processing workflow
+- `.github/workflows/deploy-github-pages.yml` - Combined blog processing and GitHub Pages deployment workflow
 
 ## Blog Post Frontmatter
 
@@ -115,10 +100,10 @@ readTime: 5                  # Optional (auto-calculated if missing)
 ## Automated Workflows
 
 ### Content Processing (GitHub Actions)
-1. **Trigger**: Push to `main` branch with changes in `content/posts/`
+1. **Trigger**: Push to `main` branch or manual workflow dispatch
 2. **Process**: Convert Markdown files to JSON with metadata
 3. **Output**: Updated `source/blog/data/` files
-4. **Deploy**: Automatic deployment to Azure Static Web Apps
+4. **Deploy**: Automatic deployment to GitHub Pages
 
 ### Local Development
 1. Write posts in `content/posts/` as Markdown files
@@ -132,5 +117,5 @@ readTime: 5                  # Optional (auto-calculated if missing)
 - **Content workflow**: Write in Markdown, deploy automatically via GitHub Actions
 - **Performance**: Client-side rendering with pre-generated JSON for fast loading
 - **SEO**: Automatic meta tag generation and structured data support
-- **Infrastructure**: Azure Storage Static Website with Terraform IaC
+- **Hosting**: GitHub Pages with automated deployment
 - **Security**: No server-side processing, minimal attack surface
