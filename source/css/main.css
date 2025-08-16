@@ -20,7 +20,7 @@
 [data-theme="dark"] {
     --bg-primary: #1f2937;
     --bg-secondary: #111827;
-    --bg-tertiary: #374151;
+    --bg-tertiary: #0f172a;
     --text-primary: #f9fafb;
     --text-secondary: #d1d5db;
     --text-tertiary: #9ca3af;
@@ -29,8 +29,8 @@
     --accent-tertiary: #fbbf24;
     --border-primary: #374151;
     --border-secondary: #4b5563;
-    --shadow-primary: rgba(0, 0, 0, 0.3);
-    --shadow-secondary: rgba(0, 0, 0, 0.2);
+    --shadow-primary: rgba(0, 0, 0, 0.4);
+    --shadow-secondary: rgba(0, 0, 0, 0.3);
 }
 
 /* CSS Reset and Base Styles */
@@ -499,31 +499,32 @@ a:hover {
 .contact-layout {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    gap: 3rem;
 }
 
 .info-section {
     background: var(--bg-primary);
-    padding: 2rem;
+    padding: 1.5rem;
     border-radius: 12px;
     box-shadow: 0 4px 6px var(--shadow-secondary);
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     border: 1px solid var(--border-primary);
     transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .contact-methods {
-    margin-top: 2rem;
+    margin-top: 1.5rem;
 }
 
 .contact-method {
     display: flex;
     align-items: center;
     gap: 1rem;
-    margin-bottom: 1.5rem;
-    padding: 1rem;
-    background: #f9fafb;
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    background: var(--bg-secondary);
     border-radius: 8px;
+    transition: background-color 0.3s ease;
 }
 
 .method-icon {
