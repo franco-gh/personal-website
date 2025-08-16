@@ -59,10 +59,12 @@ document.addEventListener('DOMContentLoaded', function() {
             const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
             
             if (scrollTop > 100) {
-                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.backgroundColor = 'var(--bg-primary)';
+                header.style.opacity = '0.95';
                 header.style.backdropFilter = 'blur(10px)';
             } else {
-                header.style.background = 'white';
+                header.style.backgroundColor = 'var(--bg-primary)';
+                header.style.opacity = '1';
                 header.style.backdropFilter = 'none';
             }
             
