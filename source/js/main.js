@@ -1,5 +1,8 @@
 // Main JavaScript functionality
 document.addEventListener('DOMContentLoaded', function() {
+    // Dark Mode Toggle
+    initThemeToggle();
+    
     // Mobile navigation toggle
     const navToggle = document.querySelector('.nav-toggle');
     const navMenu = document.querySelector('.nav-menu');
@@ -275,6 +278,47 @@ const utils = {
         elements.forEach(el => observer.observe(el));
     }
 };
+
+// Dark Mode Toggle Function
+function initThemeToggle() {
+    const themeToggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    
+    // Check for saved theme or default to light mode
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    html.setAttribute('data-theme', savedTheme);
+    
+    // Toggle theme function
+    function toggleTheme() {
+        const currentTheme = html.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        
+        html.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+    }
+    
+    // Add click event listener
+    if (themeToggle) {
+        themeToggle.addEventListener('click', toggleTheme);
+    }
+    
+    // Listen for system theme changes
+    if (window.matchMedia) {
+        const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+        
+        // Only apply system theme if no saved preference
+        if (!localStorage.getItem('theme')) {
+            html.setAttribute('data-theme', mediaQuery.matches ? 'dark' : 'light');
+        }
+        
+        mediaQuery.addEventListener('change', function(e) {
+            // Only apply system theme if no saved preference
+            if (!localStorage.getItem('theme')) {
+                html.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+            }
+        });
+    }
+}
 
 // Make utils available globally
 window.utils = utils;
