@@ -238,7 +238,8 @@
     }
 }
 
-/* Dark Mode Support */
+/* Dark Mode Support - Disabled in favor of manual theme toggle in main.css */
+/*
 @media (prefers-color-scheme: dark) {
     :root {
         --bg-primary: #1a1a1a;
@@ -247,6 +248,7 @@
         --text-secondary: #b3b3b3;
         --border-color: #404040;
     }
+*/
     
     /* Uncomment to enable dark mode */
     /*
@@ -288,6 +290,7 @@
         border-top: 1px solid var(--border-color);
     }
     */
+/*
 }
 
 /* Accessibility Improvements */

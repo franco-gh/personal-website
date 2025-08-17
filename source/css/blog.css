@@ -374,7 +374,7 @@
     gap: 2rem;
     margin-bottom: 1.5rem;
     font-size: 0.9rem;
-    color: #6b7280;
+    color: var(--text-tertiary);
     flex-wrap: wrap;
 }
 
@@ -414,7 +414,7 @@
 
 .reading-progress-bar {
     height: 100%;
-    background: #667eea;
+    background: var(--accent-primary);
     width: 0%;
     transition: width 0.1s;
 }
@@ -556,7 +556,7 @@
 }
 
 .share-btn.email {
-    background: #6b7280;
+    background: var(--text-secondary);
     color: white;
 }
 
@@ -715,7 +715,7 @@
 }
 
 .error-message h1 {
-    color: #dc2626;
+    color: var(--destructive);
     margin-bottom: 1rem;
 }
 
