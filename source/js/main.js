@@ -60,8 +60,8 @@ document.addEventListener('DOMContentLoaded', function() {
             
             if (scrollTop > 100) {
                 header.style.backgroundColor = 'var(--bg-primary)';
-                header.style.opacity = '0.95';
-                header.style.backdropFilter = 'blur(10px)';
+                header.style.opacity = '1';
+                header.style.backdropFilter = 'none';
             } else {
                 header.style.backgroundColor = 'var(--bg-primary)';
                 header.style.opacity = '1';
@@ -286,9 +286,46 @@ function initThemeToggle() {
     const themeToggle = document.getElementById('themeToggle');
     const html = document.documentElement;
     
-    // Check for saved theme or default to light mode
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    html.setAttribute('data-theme', savedTheme);
+    // Function to get system theme preference
+    function getSystemTheme() {
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            return 'dark';
+        }
+        return 'light';
+    }
+    
+    // Initialize theme
+    function initializeTheme() {
+        const savedTheme = localStorage.getItem('theme');
+        let initialTheme;
+        
+        if (savedTheme) {
+            // Use saved preference
+            initialTheme = savedTheme;
+        } else {
+            // Use system preference
+            initialTheme = getSystemTheme();
+        }
+        
+        html.setAttribute('data-theme', initialTheme);
+        updateToggleButton(initialTheme);
+    }
+    
+    // Update toggle button appearance
+    function updateToggleButton(theme) {
+        if (themeToggle) {
+            const sunIcon = themeToggle.querySelector('.sun-icon');
+            const moonIcon = themeToggle.querySelector('.moon-icon');
+            
+            if (theme === 'dark') {
+                if (sunIcon) sunIcon.style.opacity = '0';
+                if (moonIcon) moonIcon.style.opacity = '1';
+            } else {
+                if (sunIcon) sunIcon.style.opacity = '1';
+                if (moonIcon) moonIcon.style.opacity = '0';
+            }
+        }
+    }
     
     // Toggle theme function
     function toggleTheme() {
@@ -297,6 +334,10 @@ function initThemeToggle() {
         
         html.setAttribute('data-theme', newTheme);
         localStorage.setItem('theme', newTheme);
+        updateToggleButton(newTheme);
+        
+        // Debug log
+        console.log(`Theme switched to: ${newTheme}`);
     }
     
     // Add click event listener
@@ -308,18 +349,19 @@ function initThemeToggle() {
     if (window.matchMedia) {
         const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
         
-        // Only apply system theme if no saved preference
-        if (!localStorage.getItem('theme')) {
-            html.setAttribute('data-theme', mediaQuery.matches ? 'dark' : 'light');
-        }
-        
         mediaQuery.addEventListener('change', function(e) {
             // Only apply system theme if no saved preference
             if (!localStorage.getItem('theme')) {
-                html.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+                const systemTheme = e.matches ? 'dark' : 'light';
+                html.setAttribute('data-theme', systemTheme);
+                updateToggleButton(systemTheme);
+                console.log(`System theme changed to: ${systemTheme}`);
             }
         });
     }
+    
+    // Initialize the theme
+    initializeTheme();
 }
 
 // Make utils available globally
